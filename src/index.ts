@@ -1,17 +1,19 @@
 import * as p from 'puppeteer'
 import * as fs from 'fs'
 import * as path from 'path'
+import {parseArgs} from './lib/parse-args'
+import {waitDownload} from './lib/wait-download'
 
 declare const go_serviceDetail
 declare const go_filedownload
 
-async function main(latest = '20191213 ') {
+async function main(latest = '20191218 ') {
   const browser = await p.launch()
   const page = await browser.newPage()
   const url = 'http://openapi.nsdi.go.kr/nsdi/index.do'
 
   await page['_client'].send('Page.setDownloadBehavior', {
-    behavior: 'allow',
+    behavior    : 'allow',
     downloadPath: path.resolve(),
   })
   await page.goto(url, {waitUntil: 'networkidle2'})
@@ -39,24 +41,6 @@ async function main(latest = '20191213 ') {
   await browser.close()
 }
 
-const parseArgs = (fx: string) => fx
-    .match(/'([\w\s_.]+)'/g)
-    .map(arg => arg.replace(/\'/g, ''))
-const waitDownload = async (log: () => void) => {
-  await delay(1)
 
-  const count = fs.readdirSync(path.resolve())
-    .map(path.extname)
-    .filter(ext => ext === '.crdownload').length
-
-  if (count > 0) {
-    log()
-
-    return waitDownload(log)
-  }
-
-  return
-}
-const delay = (second: number) => new Promise(resolve => setTimeout(resolve, second * 1000))
 
 main().then(() => console.log('end'))
