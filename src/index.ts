@@ -3,7 +3,7 @@ import {download} from './download'
 import {assertDate8, assertFile, assertString} from './lib/asserts'
 import {removeCrDownloads} from './lib/remove-crdownload'
 
-async function nsdi({type, file, startsWith}) {
+export async function nsdi({type, file, startsWith}) {
   const [b, p] = await page()
 
   try {
@@ -23,4 +23,6 @@ async function nsdi({type, file, startsWith}) {
     await b.close()
   }
 }
+
+export default nsdi
 
