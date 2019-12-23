@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import program from 'commander'
 import {readFileSync} from 'fs'
 import {list} from './list'

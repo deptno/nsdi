@@ -1,6 +1,6 @@
 {
   "name": "nsdi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "nsdi 파일 다운로더",
   "main": "dist/index.js",
   "scripts": {
