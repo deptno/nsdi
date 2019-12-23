@@ -14,5 +14,5 @@ ${g.items
     )
     .join('\n')
 
-  return text
+  console.log(text)
 }

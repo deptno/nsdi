@@ -1,6 +1,6 @@
 {
   "name": "nsdi",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "nsdi 파일 다운로더",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,9 +10,8 @@
   "scripts": {
     "prepare": "rimraf dist && tsc",
     "start": "ts-node src/index.ts",
-    "list": "ts-node src/index.ts -l",
-    "download": "ts-node src/index.ts -d ",
-    "name": "ts-node src/index.ts -t 연속지적도형정보 -s 2091219 -f shp",
+    "bin.list": "ts-node src/bin.ts -l",
+    "bin.donwload": "ts-node src/bin.ts -t 연속지적도형정보 -s 2091219 -f shp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
