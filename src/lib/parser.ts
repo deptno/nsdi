@@ -1,8 +1,7 @@
-import {createDocument} from 'domino'
+import {Group, GroupItem, File} from '../model'
 
-export const parseMain = (html: string): Group[] => {
-  const body = createDocument(html)
-  const contents = body.querySelectorAll('.sub-content')
+export const parseMain = (dom: Document): Group[] => {
+  const contents = dom.querySelectorAll('.sub-content')
   const ret = []
 
   for (const c of contents) {
@@ -32,17 +31,4 @@ export const parseMain = (html: string): Group[] => {
   }
 
   return ret
-}
-
-class Group {
-  title: string
-  items: GroupItem[] = []
-}
-class GroupItem {
-  title: string
-  files: File[] = []
-}
-class File {
-  title: string
-  code: string
 }
