@@ -4,7 +4,8 @@
     "target": "es2018",
     "esModuleInterop": true,
     "outDir": "dist",
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules"
